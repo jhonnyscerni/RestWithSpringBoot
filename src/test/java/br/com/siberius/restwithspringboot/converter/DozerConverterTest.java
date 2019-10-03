@@ -24,7 +24,7 @@ public class DozerConverterTest {
     @Test
     public void parseEntityToVOTest() {
         PessoaVo output = DozerConverter.parseObject(inputObject.mockEntity(), PessoaVo.class);
-        Assert.assertEquals(Long.valueOf(0L), output.getId());
+        Assert.assertEquals(Long.valueOf(0L), output.getKey());
         Assert.assertEquals("First Name Test0", output.getPrimeiroNome());
         Assert.assertEquals("Last Name Test0", output.getUltimoNome());
         Assert.assertEquals("Addres Test0", output.getEndereco());
@@ -36,7 +36,7 @@ public class DozerConverterTest {
         List<PessoaVo> outputList = DozerConverter.parseListObjects(inputObject.mockEntityList(), PessoaVo.class);
         PessoaVo outputZero = outputList.get(0);
 
-        Assert.assertEquals(Long.valueOf(0L), outputZero.getId());
+        Assert.assertEquals(Long.valueOf(0L), outputZero.getKey());
         Assert.assertEquals("First Name Test0", outputZero.getPrimeiroNome());
         Assert.assertEquals("Last Name Test0", outputZero.getUltimoNome());
         Assert.assertEquals("Addres Test0", outputZero.getEndereco());
@@ -44,7 +44,7 @@ public class DozerConverterTest {
 
         PessoaVo outputSeven = outputList.get(7);
 
-        Assert.assertEquals(Long.valueOf(7L), outputSeven.getId());
+        Assert.assertEquals(Long.valueOf(7L), outputSeven.getKey());
         Assert.assertEquals("First Name Test7", outputSeven.getPrimeiroNome());
         Assert.assertEquals("Last Name Test7", outputSeven.getUltimoNome());
         Assert.assertEquals("Addres Test7", outputSeven.getEndereco());
@@ -52,7 +52,7 @@ public class DozerConverterTest {
 
         PessoaVo outputTwelve = outputList.get(12);
 
-        Assert.assertEquals(Long.valueOf(12L), outputTwelve.getId());
+        Assert.assertEquals(Long.valueOf(12L), outputTwelve.getKey());
         Assert.assertEquals("First Name Test12", outputTwelve.getPrimeiroNome());
         Assert.assertEquals("Last Name Test12", outputTwelve.getUltimoNome());
         Assert.assertEquals("Addres Test12", outputTwelve.getEndereco());
