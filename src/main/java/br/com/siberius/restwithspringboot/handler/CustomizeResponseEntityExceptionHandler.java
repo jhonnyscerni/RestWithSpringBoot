@@ -1,7 +1,7 @@
 package br.com.siberius.restwithspringboot.handler;
 
 import br.com.siberius.restwithspringboot.exception.ExceptionResponse;
-import br.com.siberius.restwithspringboot.exception.UnsuportedMathOperationException;
+import br.com.siberius.restwithspringboot.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,9 +23,16 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
     }
 
 
-    @ExceptionHandler(UnsuportedMathOperationException.class)
+//    @ExceptionHandler(UnsuportedMathOperationException.class)
+//    public final ResponseEntity<ExceptionResponse> handlerBadRequestExceptions(Exception ex, WebRequest request) {
+//        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+//        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+//    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handlerBadRequestExceptions(Exception ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
+
 }

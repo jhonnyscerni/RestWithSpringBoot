@@ -1,9 +1,12 @@
 package br.com.siberius.restwithspringboot.service;
 
 
+import br.com.siberius.restwithspringboot.converter.DozerConverter;
 import br.com.siberius.restwithspringboot.domain.Pessoa;
+import br.com.siberius.restwithspringboot.domain.vo.PessoaVo;
 import br.com.siberius.restwithspringboot.exception.ResourceNotFoundException;
 import br.com.siberius.restwithspringboot.repository.PessoaRepository;
+import lombok.var;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,20 +21,23 @@ public class PessoaService {
     private PessoaRepository repository;
 
 
-    public List<Pessoa> findAll(){
-       return repository.findAll();
+    public List<PessoaVo> findAll(){
+        return DozerConverter.parseListObjects(repository.findAll(), PessoaVo.class) ;
     }
 
-    public Pessoa create(Pessoa pessoa) {
-       return repository.save(pessoa);
+    public PessoaVo create(PessoaVo pessoa) {
+        var entity = DozerConverter.parseObject(pessoa, Pessoa.class);
+        var vo = DozerConverter.parseObject(repository.save(entity), PessoaVo.class);
+        return vo;
     }
 
-   public Pessoa findById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nao encontramos nenhum registro para esse ID!"));
+   public PessoaVo findById(Long id) {
+        var entity = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nao encontramos nenhum registro para esse ID!"));
+        return DozerConverter.parseObject(entity, PessoaVo.class);
    }
 
-    public Pessoa update(Pessoa pessoa) {
-        Pessoa entity = repository.findById(pessoa.getId()).orElseThrow(
+    public PessoaVo update(PessoaVo pessoa) {
+        var entity = repository.findById(pessoa.getId()).orElseThrow(
                                             () -> new ResourceNotFoundException("Nao encontramos nenhum registro para esse ID!"));
 
        entity.setPrimeiroNome(pessoa.getPrimeiroNome());
@@ -39,7 +45,9 @@ public class PessoaService {
        entity.setEndereco(pessoa.getEndereco());
        entity.setGenero(pessoa.getGenero());
 
-       return repository.save(entity);
+       var vo = DozerConverter.parseObject(repository.save(entity), PessoaVo.class);
+
+       return vo;
 
     }
 
