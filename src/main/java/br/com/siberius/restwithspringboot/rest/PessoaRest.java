@@ -26,7 +26,7 @@ public class PessoaRest {
     }
 
     @PostMapping
-    public PessoaVo create(PessoaVo pessoa) {
+    public PessoaVo create(@RequestBody PessoaVo pessoa) {
         return service.create(pessoa);
     }
 

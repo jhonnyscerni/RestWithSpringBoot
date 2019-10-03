@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `Pessoa` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ENDERECO` varchar(100) NOT NULL,
+  `PRIMEIRO_NOME` varchar(80) NOT NULL,
+  `GENERO` varchar(6) NOT NULL,
+  `ULTIMO_NOME` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`)
+)

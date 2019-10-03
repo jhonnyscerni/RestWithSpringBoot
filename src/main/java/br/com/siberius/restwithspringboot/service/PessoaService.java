@@ -7,12 +7,10 @@ import br.com.siberius.restwithspringboot.domain.vo.PessoaVo;
 import br.com.siberius.restwithspringboot.exception.ResourceNotFoundException;
 import br.com.siberius.restwithspringboot.repository.PessoaRepository;
 import lombok.var;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class PessoaService {
