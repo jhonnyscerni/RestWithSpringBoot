@@ -1,7 +1,7 @@
-INSERT INTO `Pessoa` (`id`, `ENDERECO`, `PRIMEIRO_NOME`, `GENERO`, `ULTIMO_NOME`) VALUES
-	(1, 'Uberlândia - Minas Gerais - Brasil', 'Leandro', 'Male', 'Costa'),
-	(2, 'Uberlândia - Minas Gerais - Brasil', 'Gabriela', 'Female', 'Costa'),
-	(5, 'Patos de Minas - Minas Gerais - Brasil', 'Flávio', 'Male', 'Costa'),
-	(7, 'Uberlândia - Minas Gerais - Brasil', 'Fernanda', 'Female', 'Cardoso da Silva'),
-	(8, 'Patos de Minas - Minas Gerais - Brasil', 'Pedro', 'Male', 'Paulo'),
-	(9, 'Patos de Minas - Minas Gerais - Brasil', 'Marcos', 'Male', 'Paulo');
+INSERT INTO `Pessoa` (`id`, `primeiro_nome`, `ultimo_nome`, `endereco`, `genero`) VALUES
+	(1, 'Leandro', 'Costa'           , 'Uberlândia - Minas Gerais - Brasil'    , 'Male'  ),
+	(2, 'Gabriela','Costa'           , 'Uberlândia - Minas Gerais - Brasil'    , 'Female'),
+	(5, 'Flávio',  'Costa'           , 'Patos de Minas - Minas Gerais - Brasil', 'Male'     ),
+	(7, 'Fernanda','Cardoso da Silva', 'Uberlândia - Minas Gerais - Brasil'    , 'Female' ),
+	(8, 'Pedro',   'Paulo'           , 'Patos de Minas - Minas Gerais - Brasil', 'Male'     ),
+	(9, 'Marcos',  'Paulo'           , 'Patos de Minas - Minas Gerais - Brasil', 'Male'     );

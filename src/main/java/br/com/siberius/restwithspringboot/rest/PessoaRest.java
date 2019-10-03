@@ -15,22 +15,24 @@ public class PessoaRest {
     @Autowired
     private PessoaService service;
 
-    @GetMapping
+    @GetMapping(produces = { "application/json", "application/xml"})
     public List<PessoaVo> findAll() {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = { "application/json", "application/xml" })
     public PessoaVo findById(@PathVariable("id") Long id) {
         return service.findById(id);
     }
 
-    @PostMapping
+    @PostMapping(produces = { "application/json", "application/xml" },
+            consumes = { "application/json", "application/xml" })
     public PessoaVo create(@RequestBody PessoaVo pessoa) {
         return service.create(pessoa);
     }
 
-    @PutMapping
+    @PutMapping(produces = { "application/json", "application/xml" },
+            consumes = { "application/json", "application/xml" })
     public PessoaVo update(@RequestBody PessoaVo pessoa) {
         return service.update(pessoa);
     }

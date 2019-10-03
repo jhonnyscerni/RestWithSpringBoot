@@ -95,6 +95,11 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- for XML support -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
