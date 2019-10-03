@@ -56,12 +56,12 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <!-- Devido a incompatibilidade com o Oracle 10c é necessário utilizar
-        esta versão -->
+        esta versão
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>4.2.0</version>
-        </dependency>
+        </dependency>-->
         <!-- Suporte do Jackson para as datas do Java 8 -->
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
