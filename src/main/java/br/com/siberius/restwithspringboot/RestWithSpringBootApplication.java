@@ -12,4 +12,8 @@ public class RestWithSpringBootApplication {
 		SpringApplication.run(RestWithSpringBootApplication.class, args);
 	}
 
+		//Caso queira gerar um senha BCryptPasswordEncoder de 16
+		/*BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(16);
+		String result = bCryptPasswordEncoder.encode("admin123");
+		System.out.println("My hash " + result);*/
 }
