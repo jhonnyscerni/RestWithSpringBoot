@@ -9,6 +9,7 @@ import br.com.siberius.restwithspringboot.repository.PessoaRepository;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -53,6 +54,14 @@ public class PessoaService {
         Pessoa entity = repository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Nao encontramos nenhum registro para esse ID!"));
         repository.delete(entity);
+    }
+
+    @Transactional
+    public PessoaVo disablePerson(Long id) {
+        repository.disablePersons(id);
+        var entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
+        return DozerConverter.parseObject(entity, PessoaVo.class);
     }
 
 }

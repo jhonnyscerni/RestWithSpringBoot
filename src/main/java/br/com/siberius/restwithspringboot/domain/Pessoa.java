@@ -40,4 +40,7 @@ public class Pessoa implements Serializable {
     @Column
     private String genero;
 
+    @Column(nullable = false)
+    private Boolean enabled;
+
 }
