@@ -39,7 +39,7 @@ public class AuthRest {
 
     @ApiOperation(value = "Authenticates a user and returns a token")
     @SuppressWarnings("rawtypes")
-    @PostMapping(value = "", produces = { "application/json", "application/xml", "application/x-yaml" },
+    @PostMapping(value = "/signin", produces = { "application/json", "application/xml", "application/x-yaml" },
             consumes = { "application/json", "application/xml", "application/x-yaml" })
     public ResponseEntity signin(@RequestBody AccountCredentialsVO data) {
         try {
