@@ -1,11 +1,13 @@
 package br.com.siberius.restwithspringboot.rest;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Api(value = "Calculadora Enpoint", tags = "Calculadora Enpoint")
 public class MathRest {
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
