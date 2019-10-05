@@ -8,6 +8,8 @@ import br.com.siberius.restwithspringboot.exception.ResourceNotFoundException;
 import br.com.siberius.restwithspringboot.repository.PessoaRepository;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +21,18 @@ public class PessoaService {
     @Autowired
     private PessoaRepository repository;
 
+    public Page<PessoaVo> findPersonByName(String primeiroNome, Pageable pageable) {
+        var page = repository.findPersonByName(primeiroNome, pageable);
+        return page.map(this::convertToPessoaVo);
+    }
 
-    public List<PessoaVo> findAll(){
-        return DozerConverter.parseListObjects(repository.findAll(), PessoaVo.class) ;
+    public Page<PessoaVo> findAll(Pageable pageable){
+        var page = repository.findAll(pageable);
+        return page.map(this::convertToPessoaVo) ;
+    }
+
+    private PessoaVo convertToPessoaVo(Pessoa pessoa){
+        return DozerConverter.parseObject(pessoa, PessoaVo.class);
     }
 
     public PessoaVo create(PessoaVo pessoa) {
