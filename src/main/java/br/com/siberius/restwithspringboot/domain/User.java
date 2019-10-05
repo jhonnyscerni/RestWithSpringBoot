@@ -21,6 +21,9 @@ public class User implements UserDetails, Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public User() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

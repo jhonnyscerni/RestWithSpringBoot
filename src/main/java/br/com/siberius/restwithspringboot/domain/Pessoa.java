@@ -10,19 +10,17 @@ import java.io.Serializable;
 
 
 @Entity
-@DynamicInsert
-@DynamicUpdate
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "Pessoa")
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
-@NoArgsConstructor
+@Table(name = "pessoa")
 
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = -5001504690838018338L;
 
+    public Pessoa() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

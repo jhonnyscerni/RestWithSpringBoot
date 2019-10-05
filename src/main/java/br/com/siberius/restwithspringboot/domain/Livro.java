@@ -17,15 +17,14 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "Livro")
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
-@NoArgsConstructor
-@DynamicInsert
-@DynamicUpdate
+@Table(name = "livro")
 public class Livro implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
+
+    public Livro() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

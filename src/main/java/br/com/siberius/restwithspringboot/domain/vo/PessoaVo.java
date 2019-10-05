@@ -17,6 +17,9 @@ public class PessoaVo extends ResourceSupport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public PessoaVo() {
+    }
+
     @Mapping("id")
     private Long key;
 
@@ -27,5 +30,7 @@ public class PessoaVo extends ResourceSupport implements Serializable {
     private String endereco;
 
     private String genero;
+
+    private Boolean enabled;
 
 }

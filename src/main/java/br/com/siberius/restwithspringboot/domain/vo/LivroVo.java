@@ -18,6 +18,9 @@ public class LivroVo extends ResourceSupport implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public LivroVo() {
+    }
+
     @Mapping("id")
     private Long key;
 
@@ -28,5 +31,6 @@ public class LivroVo extends ResourceSupport implements Serializable {
     private Double preco;
 
     private String titulo;
+
 
 }
