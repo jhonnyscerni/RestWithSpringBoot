@@ -1,9 +1,8 @@
 package br.com.siberius.restwithspringboot.domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
