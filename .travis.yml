@@ -1,7 +1,6 @@
 language: bash
 services: docker
 before_install:
-  - cd /Users/jhonnyscerni/Documents/workspace-cursos/rest-with-spring-boot/
   - echo "We are in the Docker folder!"
 script:
   - docker-compose build
