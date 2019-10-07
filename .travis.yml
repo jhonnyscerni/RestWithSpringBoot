@@ -1,0 +1,17 @@
+language: bash
+services: docker
+before_install:
+  - cd /Users/jhonnyscerni/Documents/workspace-cursos/rest-with-spring-boot Docker/
+  - echo "We are in the Docker folder!"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+deploy:
+  provider: script
+  script: docker push jhonnyscerni/mysql-rest-with-spring-boot;
+    docker push jhonnyscerni/rest-with-spring-boot;
+  on:
+    branch: docker
+notifications:
+  email: false
